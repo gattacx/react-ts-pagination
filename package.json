@@ -1,5 +1,5 @@
 {
-  "name": "pagination-react-ts",
+  "name": "@bladeofaurora/pagination-react-ts",
   "version": "1.0.0",
   "description": "Pagination React Typescript",
   "main": "index.js",
