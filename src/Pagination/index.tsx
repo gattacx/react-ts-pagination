@@ -1,7 +1,7 @@
 import {useEffect, useMemo, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 import {useImmer} from "use-immer";
-import {numberToArray} from "../utils/numberEditors";
+import {lengthOfPagination, numberToArray} from "../utils/numberEditors";
 
 interface IPagination {
     pages: number
@@ -10,6 +10,7 @@ interface IPagination {
 
 export const Pagination = (props: IPagination) => {
     const { pages, size = 10 } = props
+    const lengthArray = lengthOfPagination(pages, size)
     const [searchParams, setSearchParams] = useSearchParams()
     const [currentPage, setCurrentPage] = useState(Number(searchParams.get('page'))) // change current page
     const [paginateInArray, setPaginateInArray] = useImmer<number[]>([0])
@@ -27,7 +28,7 @@ export const Pagination = (props: IPagination) => {
     const getRight = () => {
         const newArray: number[] = []
         paginateInArray.map((page: number) => newArray.push(page + 4))
-        if (!(newArray[newArray.length - 1] > pages)) {
+        if (!(newArray[newArray.length - 1] > lengthArray)) {
             setPaginateInArray(newArray)
         } else {
             setPaginateInArray(sizeInArray.slice(sizeInArray.length - 4))
@@ -45,8 +46,8 @@ export const Pagination = (props: IPagination) => {
     }
 
     const sizeInArray = useMemo(() => {
-        return numberToArray(pages - 1)
-    }, [pages])
+        return numberToArray(lengthArray - 1)
+    }, [lengthOfPagination])
 
     useEffect(() => {
         if (sizeInArray.length === 0) {
@@ -64,7 +65,7 @@ export const Pagination = (props: IPagination) => {
                 setPaginateInArray([...sizeInArray].slice(currentPage - 3, currentPage + 1))
             }
         }
-    }, [currentPage, sizeInArray, pages])
+    }, [currentPage, sizeInArray, lengthOfPagination])
 
     return (
         <div>Pag</div>
