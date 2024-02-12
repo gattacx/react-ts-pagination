@@ -1,5 +1,5 @@
 {
-  "name": "@bladeofaurora/pagination-react-ts",
+  "name": "@voytenkodev/pagination-react-ts",
   "version": "1.0.0",
   "description": "Pagination React Typescript",
   "main": "index.js",
@@ -33,6 +33,6 @@
     "use-immer": "^0.9.0"
   },
   "publishConfig": {
-    "@bladeofaurora/pagination-react-ts:registry": "https://npm.pkg.github.com"
+    "@voytenkodev/pagination-react-ts:registry": "https://npm.pkg.github.com"
   }
 }
