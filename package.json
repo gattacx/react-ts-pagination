@@ -1,6 +1,6 @@
 {
   "name": "@voytenkodev/pagination-react-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pagination React Typescript",
   "main": "index.js",
   "scripts": {
