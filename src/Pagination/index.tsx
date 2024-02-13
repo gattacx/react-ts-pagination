@@ -2,7 +2,9 @@ import {useEffect, useMemo, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 import {useImmer} from "use-immer";
 import {lengthOfPagination, numberToArray} from "../utils/numberEditors";
-
+import styles from './Pagination.module.css'
+import arrowLeftSvg from 'assets/arrow_left.svg'
+import arrowRightSvg from 'assets/arrow_right.svg'
 interface IPagination {
     pages: number
     size?: number
@@ -68,6 +70,58 @@ export const Pagination = (props: IPagination) => {
     }, [currentPage, sizeInArray, lengthOfPagination])
 
     return (
-        <div>Pag</div>
+        <div className={styles.paginateContainer}>
+            {sizeInArray.length > 4 && (
+                <img
+                    className={styles.paginateImage}
+                    src={arrowLeftSvg}
+                    alt="Get Left x4"
+                    onClick={() => getLeft()}
+                />
+            )}
+            {paginateInArray.length > 0 && (
+                <div className={styles.paginateList}>
+                    {paginateInArray.map((item, index) => {
+                        return (
+                            <button
+                                className={`${styles.paginateButton} ${
+                                    (item === currentPage || !currentPage) && styles.paginateButtonActive
+                                }`}
+                                key={index}
+                                type="button"
+                                onClick={() => {
+                                    navigateToPage(item)
+                                }}
+                            >
+                                {item}
+                            </button>
+                        )
+                    })}
+                    {sizeInArray.length > 4 && <span>...</span>}
+                    <button
+                        className={`${styles.paginateButton} ${
+                            (sizeInArray.slice(-1)[0] + 1 || Number(0)) === currentPage &&
+                            styles.paginateButtonActive
+                        }`}
+                        type="button"
+                        onClick={() => {
+                            getLastArray()
+                            navigateToPage(Number(sizeInArray.at(-1)) + 1)
+                            setCurrentPage(Number(sizeInArray.at(-1)) + 1 || 0)
+                        }}
+                    >
+                        {sizeInArray.slice(-1)[0] + 1 || '0'}
+                    </button>
+                </div>
+            )}
+            {sizeInArray.length > 4 && (
+                <img
+                    className={styles.paginateImage}
+                    src={arrowRightSvg}
+                    alt="Get Right x4"
+                    onClick={() => getRight()}
+                />
+            )}
+        </div>
     )
 }

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable", "ES2021.String", "ES2023", "ES2022.Object"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "ES2021.String"],
     "sourceMap": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
@@ -38,6 +38,6 @@
     "jest"
   ],
   "types": ["typePatches"],
-  "include": ["src"],
+  "include": ["src/**/*"],
 //  "references": [{ "path": "./tsconfig.node.json" }]
 }

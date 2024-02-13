@@ -1,0 +1,67 @@
+
+.paginateImage{
+    margin: 0;
+    padding: 10px;
+    border-radius: 4px;
+    background: #EDEEF3;
+    cursor: pointer;
+}
+
+.paginateImage:hover{
+    background: #D7E6F5;
+}
+.paginateContainer{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 12px;
+}
+
+.paginateList{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+
+.paginateList span{
+    margin: 0 6px;
+    user-select: none;
+}
+.paginateList span:hover{
+    cursor: auto;
+    background: none;
+    color: black;
+}
+
+.paginateButton{
+    background: none;
+    height: 26px;
+    width: 26px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 12px */
+    letter-spacing: -0.12px;
+    border: none;
+    transition: ease 0.2s;
+    background: #EDEEF3;
+}
+
+.paginateButton:hover{
+    cursor: pointer;
+    color: white;
+    background: #2F8DB3;
+}
+
+.paginateButtonActive{
+    background: #2F8DB3;
+    color: white;
+}
