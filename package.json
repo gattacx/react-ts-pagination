@@ -1,6 +1,6 @@
 {
-  "name": "@voytenkodev/pagination-react-ts",
-  "version": "1.0.1",
+  "name": "pagination-react-ts",
+  "version": "1.0.2",
   "description": "Pagination React Typescript",
   "main": "index.js",
   "scripts": {
@@ -39,6 +39,6 @@
     "use-immer": "^0.9.0"
   },
   "publishConfig": {
-    "@voytenkodev/pagination-react-ts:registry": "https://npm.pkg.github.com"
+    "pagination-react-ts:registry": "https://npm.pkg.github.com"
   }
 }
